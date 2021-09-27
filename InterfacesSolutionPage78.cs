@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace InterfacesSolutionPage78
@@ -12,6 +12,13 @@ namespace InterfacesSolutionPage78
 
     class RegularUser : IUser
     {
+
+        public RegularUser (string status, int balance)
+        {
+            Status = status;
+            Balance = balance;
+        }
+
         public string Status { get; set; }
         public int Balance { get; set; }
 
@@ -23,12 +30,15 @@ namespace InterfacesSolutionPage78
 
     class PremiumUser : RegularUser
     {
-        public int BonusBalance { get; set; }
+        public PremiumUser(string status, int balance) : base(status, balance)
+        {
+            Balance =+ BonusBalance;
+        }
 
+        public int BonusBalance = 250;
         public override string GetBalanceData()
         {
-            return $"Balance premium is: {Balance + BonusBalance}";
-          
+            return $"Balance premium is: {Balance + BonusBalance}";         
         }
     }
     class Program
@@ -42,18 +52,9 @@ namespace InterfacesSolutionPage78
         }
         static void Main(string[] args)
         {
-            RegularUser user1 = new RegularUser
-            {
-                Status = "regular",
-                Balance = 250
-            };
+            RegularUser user1 = new RegularUser("regular", 250);
 
-            PremiumUser user2 = new PremiumUser
-            {
-                Status = "Premium",
-                Balance = 400,
-                BonusBalance = 300,
-            };
+            PremiumUser user2 = new PremiumUser("premium", 250);          
 
             List<IUser> users = new List<IUser>()
             {
