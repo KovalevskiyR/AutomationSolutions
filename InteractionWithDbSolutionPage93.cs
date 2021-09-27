@@ -26,11 +26,9 @@ namespace InteractionWithDbSolutionPage93
                 connect.ConnectionString =
                     "Server=sql11.freesqldatabase.com;Database=sql11437128;user id=sql11437128;password=U31XlvcAsL";
                 connect.Open();
-                SqlCommand getAllUsers = new SqlCommand("SELECT * FROM Users", connect);
-                getAllUsers.ExecuteNonQuery();
+                SqlCommand getAllUsers = new SqlCommand("SELECT * FROM Users", connect);               
                 connect.Close();
             }
-
         }
         public static void UpdateUser(int id, string country, string name, string position)
         {
@@ -45,9 +43,10 @@ namespace InteractionWithDbSolutionPage93
                 insertCommand.Parameters.AddWithValue("@id", id);
                 insertCommand.Parameters.AddWithValue("@country", country);
                 insertCommand.Parameters.AddWithValue("@name", name);
-                insertCommand.Parameters.AddWithValue("@pos", position);
-                
-                insertCommand.ExecuteNonQuery();
+                insertCommand.Parameters.AddWithValue("@pos", position);             
+                int result = insertCommand.ExecuteNonQuery();
+
+                Console.WriteLine($"Changed {result} objects")
                 connect.Close();
             }      
         }       
