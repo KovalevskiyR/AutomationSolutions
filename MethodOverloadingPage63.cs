@@ -67,20 +67,20 @@ namespace MethodOverloadingPage63
             Customer,
         }
 
-        private void GetRole(string Role)
+        private string GetRole(string Role)
         {
             this.Role = _role;
-            Console.WriteLine(Role);
+            return Role;
         }
 
-        public void GetLogin()
+        public string GetLogin()
         {
-            Console.WriteLine(Login);
+            return Login;         
         }
 
-        public void GetPassword()
+        public string GetPassword()
         {
-            Console.WriteLine(Password);
+            return Password;
         }
     }
     public class ForumUser : User
@@ -108,13 +108,13 @@ namespace MethodOverloadingPage63
             string sales_manager_role = Enum.GetName(typeof(User.UserRole), 1);
 
             User User1 = new User("adminadmin1", "qwer", admin_role);
-            User1.GetLogin();
-            User1.GetPassword();            
+            Console.WriteLine(User1.GetLogin());
+            Console.WriteLine(User1.GetPassword());            
             Console.WriteLine();
 
             User User2 = new User("qwerqeqe12", "password1", null);
-            User2.GetLogin();
-            User2.GetPassword();           
+            Console.WriteLine(User2.GetLogin());
+            Console.WriteLine(User2.GetPassword());
             Console.WriteLine();
 
 
