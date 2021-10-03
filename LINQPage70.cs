@@ -69,29 +69,29 @@ namespace LINQPage70
             Customer,
         }
 
-        private void GetRole(string Role)
+        private string GetRole(string Role)
         {
             this.Role = _role;
-            Console.WriteLine(Role);
+            return Role;
         }
 
-        public void GetLogin()
+        public string GetLogin()
         {
-            Console.WriteLine(Login);
+            return Login;
         }
 
-        public void GetPassword()
+        public string GetPassword()
         {
-            Console.WriteLine(Password);
+            return Password;
         }
-        public static void GetUserName(string UserName)
+        public static string GetUserName(string UserName)
         {
-            Console.WriteLine($"User name is: {UserName}");
+            return $"User name is: {UserName}";
         }
 
-        public static void GetUserRole(string UserRole)
+        public static string GetUserRole(string UserRole)
         {
-            Console.WriteLine($"User role is: {UserRole}");
+            return $"User role is: {UserRole}";
         }
     }
     public class ForumUser : User
