@@ -67,29 +67,29 @@ namespace StaticClassesPage64
             Customer,
         }
 
-        private void GetRole(string Role)
+        public string GetRole(string Role)
         {
             this.Role = _role;
-            Console.WriteLine(Role);
+            return Role;
         }
 
-        public void GetLogin()
+        public string GetLogin()
         {
-            Console.WriteLine(Login);
+            return Login;
         }
 
-        public void GetPassword()
+        public string GetPassword()
         {
-            Console.WriteLine(Password);
+            return Password;
         }
-        public static void GetUserName(string UserName)
-        {
-            Console.WriteLine($"User name is: {UserName}");
+        public static string GetUserName(string UserName)
+        {         
+            return $"User name is: {UserName}";
         }
 
-        public static void GetUserRole(string UserRole)
+        public static string GetUserRole(string UserRole)
         {
-            Console.WriteLine($"User role is: {UserRole}");
+            return $"User role is: {UserRole}";
         }
     }
     public class ForumUser : User
@@ -117,13 +117,13 @@ namespace StaticClassesPage64
             string sales_manager_role = Enum.GetName(typeof(User.UserRole), 1);
 
             User User1 = new User("adminadmin1", "qwer", admin_role);
-            User1.GetLogin();
-            User1.GetPassword();         
+            Console.WriteLine(User1.GetLogin());
+            Console.WriteLine(User1.GetPassword());         
             Console.WriteLine();
 
             User User2 = new User("qwerqeqe12", "password1", null);
-            User2.GetLogin();
-            User2.GetPassword();            
+            Console.WriteLine(User2.GetLogin());
+            Console.WriteLine(User2.GetPassword());
             Console.WriteLine();
 
             ForumUser FUser1 = new ForumUser("login112323", "password33", "developer");
@@ -136,10 +136,10 @@ namespace StaticClassesPage64
                                            "you would see dark and light stripes in the same pattern as its fur.");
             Console.WriteLine();
 
-            ForumUser.GetUserName("username2");
-            ForumUser.GetUserRole("admin");
-            User.GetUserName("userxuserx");
-            User.GetUserRole("qa")
+            Console.WriteLine(ForumUser.GetUserName("username2"));
+            Console.WriteLine(ForumUser.GetUserRole("admin"));
+            Console.WriteLine(User.GetUserName("userxuserx"));
+            Console.WriteLine(User.GetUserRole("qa"));
         }
     }
 }
